@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+<style>
+body {
+  font-family: Coiny;
+  margin: 0 auto;
+  max-width: 600px;
+  background: brown;
+}
+
+div {
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+
+h1 {
+  font-family: Coiny, cursive;
+  text-align: center;
+  font-size: 75px;
+  color: gold;
+  margin: 60px 0 0 0;
+}
+
+h2 {
+  text-align: center;
+  color: orange;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: gold;
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), (0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+}
+
+ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<h1>Yusuf's Pizzeria</h1>
+<h2>The Best Pizza in NYC</h2>
+<ul>
+  <li><button onclick="Appetizers()">Appetizers</button></li>
+  <li><button onclick="Drinks()">Drinks</button></li>
+  <li><button onclick="Desserts()">Desserts</button></li>
+</ul>
+<div id="app"></div>
+
+<script>
+
+AppetizersImages = [
+  'url("https://2.bp.blogspot.com/-x2sY-HcgrWU/VABTuw9kbpI/AAAAAAAAfGQ/iidmNk_y3Vk/s1600/pizza-hut-bacon-stuffed-crust-pizza.jpg")',
+  'url("https://i0.wp.com/mamaloli.com/wp-content/uploads/2010/08/spicyhawaiianpizza-09.jpg?w=960&ssl=1")',
+  'url("https://blueflame-pizzeria.com/wp-content/uploads/2017/05/plain_pizza.jpeg")',
+]
+
+DrinksImages = [
+  'url("data:image/webp;base64,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")',
+  'url("https://www.publicdomainpictures.net/pictures/30000/velka/fruit-punch.jpg")',
+  'url("https://pics.drugstore.com/prodimg/416811/450.jpg")',
+]
+
+DessertsImages = [
+  'url("https://images.media-allrecipes.com/userphotos/720x405/3850414.jpg")',
+  'url("https://www.averiecooks.com/wp-content/uploads/2017/10/chocchipcookieforone-9.jpg")',
+  'url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg")',
+]
+
+AppetizersDivs = [
+  '<div class="item"><p>Stuffed Crust w/ Pepperoni <span class="price">$16.99</span><br /><small>Enjoy a stuffed crust pepperoni pizza for only 17.99!!!. </small></p></div>',
+
+  '<div class="item"><p>Jalapeño and Pineapple <span class="price">$13.99</span><br /><small>A plain pizza with pinnapple and jalapeño toppings. </small></p></div>',
+
+  '<div class="item"><p>Plain Pizza <span class="price">$11.99</span><br /><small> The classic plain pizza tht everyone knows and loves!</small></p></div>', 
+]
+
+DrinksDivs = [
+  '<div class="item"><p>Sprite <span class="price">$1.25</span><br /><small>A cold sprite if you want something lighter than coke. </small></p></div>',
+
+  '<div class="item"><p>Fruit Punch <span class="price">$2.00</span><br /><small>Not a soda person? Try our nw fruit punch. </small></p></div>',
+
+  '<div class="item"><p>Cola <span class="price">$1.75</span><br /><small> Everyone loves a good coke once in a while.</small></p></div>', 
+]
+
+DessertsDivs = [ 
+  '<div class="item"><p>Brownies <span class="price">$5.99</span><br /><small>Get our new freshley baked brownies. </small></p></div>',
+
+  '<div class="item"><p>Large Chocolate Chip Cookie <span class="price">$2.50</span><br /><small>They say bigger is better! </small></p></div>',
+
+  '<div class="item"><p>Apple Pie Slice <span class="price">$4.75</span><br /><small> Enjoy an American styled apple pie.</small></p></div>', 
+]
+  
+  
+
+
+function Appetizers() {
+  Appetizer = document.getElementById("app")
+  Appetizer.innerHTML = ''
+	Appetizer.innerHTML += AppetizersDivs[0]
+  Appetizer.innerHTML += AppetizersDivs[1]
+  Appetizer.innerHTML += AppetizersDivs[2]
+	//alert('Sample Text')
+	items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+	  	items[i].style.background = AppetizersImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+    }
+}
+
+function Drinks() {
+  Drink = document.getElementById("app")
+  Drink.innerHTML = ''
+  Drink.innerHTML += DrinksDivs[0]
+  Drink.innerHTML += DrinksDivs[1]
+  Drink.innerHTML += DrinksDivs[2]
+	//alert('Clicked')
+	items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = DrinksImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+    }
+}
+
+function Desserts() {
+  Dessert = document.getElementById("app")
+  Dessert.innerHTML = ''
+  Dessert.innerHTML += DessertsDivs[0]
+  Dessert.innerHTML += DessertsDivs[1]
+  Dessert.innerHTML += DessertsDivs[2]
+  //alert('Sample Text')
+  items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = DessertsImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+    }
+}
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+</body>
