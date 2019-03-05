@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <head>
 <script src="/assets/jquery.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
@@ -132,27 +132,27 @@ DessertsImages = [
 ]
 
 AppetizersDivs = [
-  '<div class="item"><p>Stuffed Crust w/ Pepperoni <span class="price">$16.99</span><br /><small>Enjoy a stuffed crust pepperoni pizza for only 17.99!!!. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Stuffed Crust w/ Pepperoni <span class="price">$16.99</span><br /><small>Enjoy a stuffed crust pepperoni pizza for only 17.99!!!. </small></p></div>',
 
-  '<div class="item"><p>Jalapeño and Pineapple <span class="price">$13.99</span><br /><small>A plain pizza with pinnapple and jalapeño toppings. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Jalapeño and Pineapple <span class="price">$13.99</span><br /><small>A plain pizza with pinnapple and jalapeño toppings. </small></p></div>',
 
-  '<div class="item"><p>Plain Pizza <span class="price">$11.99</span><br /><small> The classic plain pizza tht everyone knows and loves!</small></p></div>', 
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Plain Pizza <span class="price">$11.99</span><br /><small> The classic plain pizza tht everyone knows and loves!</small></p></div>', 
 ]
 
 DrinksDivs = [
-  '<div class="item"><p>Sprite <span class="price">$1.25</span><br /><small>A cold sprite if you want something lighter than coke. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Sprite <span class="price">$1.25</span><br /><small>A cold sprite if you want something lighter than coke. </small></p></div>',
 
-  '<div class="item"><p>Fruit Punch <span class="price">$2.00</span><br /><small>Not a soda person? Try our nw fruit punch. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Fruit Punch <span class="price">$2.00</span><br /><small>Not a soda person? Try our nw fruit punch. </small></p></div>',
 
-  '<div class="item"><p>Cola <span class="price">$1.75</span><br /><small> Everyone loves a good coke once in a while.</small></p></div>', 
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Cola <span class="price">$1.75</span><br /><small> Everyone loves a good coke once in a while.</small></p></div>', 
 ]
 
 DessertsDivs = [ 
-  '<div class="item"><p>Brownies <span class="price">$5.99</span><br /><small>Get our new freshley baked brownies. </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Brownies <span class="price">$5.99</span><br /><small>Get our new freshley baked brownies. </small></p></div>',
 
-  '<div class="item"><p>Large Chocolate Chip Cookie <span class="price">$2.50</span><br /><small>They say bigger is better! </small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Large Chocolate Chip Cookie <span class="price">$2.50</span><br /><small>They say bigger is better! </small></p></div>',
 
-  '<div class="item"><p>Apple Pie Slice <span class="price">$4.75</span><br /><small> Enjoy an American styled apple pie.</small></p></div>', 
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Apple Pie Slice <span class="price">$4.75</span><br /><small> Enjoy an American styled apple pie.</small></p></div>', 
 ]
   
   
@@ -199,11 +199,8 @@ function Desserts() {
       items[i].style.backgroundSize = '100% 100%'
     }
 }
-
-
-  $('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
+  
 </script>
 
 </body>
+
