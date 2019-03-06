@@ -1,6 +1,5 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="/assets/jquery.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 <style>
@@ -109,6 +108,7 @@ small {
   <li><button onclick="Appetizers()">Appetizers</button></li>
   <li><button onclick="Drinks()">Drinks</button></li>
   <li><button onclick="Desserts()">Desserts</button></li>
+  <li><button onclick="Sides()">Sides</button></li>
 </ul>
 <div id="app"></div>
 
@@ -132,6 +132,12 @@ DessertsImages = [
   'url("https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/6/28/0/FNK_Apple-Pie_s4x3.jpg.rend.hgtvcom.826.620.suffix/1382545039107.jpeg")',
 ]
 
+SidesImages = [ 
+  'url("https://www.seriouseats.com/2018/04/20180309-french-fries-vicky-wasik-15.jpg")',
+  'url("https://dinnerthendessert.com/wp-content/uploads/2018/08/Macaroni-Salad-688x459.jpg")',
+  'url("https://www.spendwithpennies.com/wp-content/uploads/2015/06/Easy-Macaroni-and-Cheese-Casserole-22.jpg")', 
+]
+
 AppetizersDivs = [
   '<div class="item" onclick=this.classList.toggle("show-description")><p>Stuffed Crust w/ Pepperoni <span class="price">$16.99</span><br /><small>Enjoy a stuffed crust pepperoni pizza for only 17.99!!!. </small></p></div>',
 
@@ -150,12 +156,21 @@ DrinksDivs = [
 
 DessertsDivs = [ 
   '<div class="item" onclick=this.classList.toggle("show-description")><p>Brownies <span class="price">$5.99</span><br /><small>Get our new freshley baked brownies. </small></p></div>',
-
+  
   '<div class="item" onclick=this.classList.toggle("show-description")><p>Large Chocolate Chip Cookie <span class="price">$2.50</span><br /><small>They say bigger is better! </small></p></div>',
-
+  
   '<div class="item" onclick=this.classList.toggle("show-description")><p>Apple Pie Slice <span class="price">$4.75</span><br /><small> Enjoy an American styled apple pie.</small></p></div>', 
 ]
+
+
+SidesDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Fries<span class="price">$3.99</span><br /><small>Evrything is better with a side of fries!!!!! </small></p></div>',
   
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Macaroni Salad <span class="price">$8.99</span><br /><small> Try the new macaroni salad!!. </small></p></div>',
+  
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Macaroni and Cheese <span class="price">$9.99</span><br /><small>Try a steaming hot mac n cheese </small></p></div>',
+  
+]
   
 
 
@@ -200,8 +215,25 @@ function Desserts() {
       items[i].style.backgroundSize = '100% 100%'
     }
 }
+
+function Sides() {
+  Side = document.getElementById("app")
+  Side.innerHTML = ''
+  Side.innerHTML += SidesDivs[0]
+  Side.innerHTML += SidesDivs[1]
+  Side.innerHTML += SidesDivs[2]
+  //alert('Sample Text')
+  items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+		  items[i].style.background = SidesImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+    }
+}
+
   
 </script>
 
 </body>
+
+
 
